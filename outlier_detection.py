@@ -1,27 +1,52 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
+def five_number_summary(data):
+    data = np.array(data)
+    
+    # Five-number summary
+    minimum = np.min(data)
+    Q1 = np.percentile(data, 25)
+    median = np.median(data)
+    Q3 = np.percentile(data, 75)
+    maximum = np.max(data)
+    
+    return minimum, Q1, median, Q3, maximum
 
 def detect_outliers(data):
-    # Ensure the data is a numpy array for convenience
     data = np.array(data)
-
-    # Calculate Q1 (25th percentile) and Q3 (75th percentile)
+    
+    # Calculate Q1, Q3 and IQR
     Q1 = np.percentile(data, 25)
     Q3 = np.percentile(data, 75)
-
-    # Calculate Interquartile Range (IQR)
     IQR = Q3 - Q1
-
-    # Define boundaries
-    upper_boundary = Q3 + 1.5 * IQR
+    
+    # Define outlier boundaries
     lower_boundary = Q1 - 1.5 * IQR
-
+    upper_boundary = Q3 + 1.5 * IQR
+    
     # Find outliers
-    outliers = data[(data > upper_boundary) | (data < lower_boundary)]
-
+    outliers = data[(data < lower_boundary) | (data > upper_boundary)]
+    
     return outliers
 
+def plot_boxplot(data):
+    plt.boxplot(data, vert=False)  # Set vert=False for horizontal box plot
+    plt.title('Boxplot of the Data')
+    plt.xlabel('Values')  # Change ylabel to xlabel for horizontal plot
+    plt.show()
 
-# Example usage
-data = [22, 24, 26, 28, 29, 31, 35, 37, 41, 53, 64]  # Example dataset
-print("Outliers:", detect_outliers(data))
+# Example data
+data = [22, 24, 26, 28, 29, 31, 35, 37, 41, 53, 64]
+
+# Five-number summary
+summary = five_number_summary(data)
+print("Five Number Summary: Minimum, Q1, Median, Q3, Maximum")
+print(summary)
+
+# Detect outliers
+outliers = detect_outliers(data)
+print("Outliers:", outliers)
+
+# Box plot
+plot_boxplot(data)
