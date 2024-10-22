@@ -1,4 +1,5 @@
 # Steps to Create a Star Schema in SQL Server Management Studio
+![StarSchema](https://github.com/user-attachments/assets/3f05aeff-e96e-4646-9750-080a6d45df65)
 
 ## Open SQL Server Management Studio (SSMS)
 - Launch SSMS and connect to your SQL Server instance.
