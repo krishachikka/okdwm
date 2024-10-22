@@ -18,7 +18,7 @@
 5. Click "Start" to run the algorithm.
 6. View the results in the "Result list" pane.
 
-### Input ARFF File
+### Input ARFF File - save as iris.arff
 ```arff
 @RELATION iris
 @ATTRIBUTE x NUMERIC
@@ -43,9 +43,8 @@
 5. Click "Start" to run the classification.
 6. Right-click on the result list to visualize the decision tree.
 
-### Input ARFF File
+### Input ARFF File - save as weather.arff
 ```arff
-Copy code
 @relation weather
 @attribute outlook {sunny, overcast, rain}
 @attribute temperature {hot, mild, cool}
@@ -78,10 +77,9 @@ rain, mild, high, true, N
 5. Click "Start" to run the association rule mining.
 6. View the generated association rules in the results list.
 
-### Input ARFF File
+### Input ARFF File - save as test_apriori.arff
 ```arff
-
-@relation TEST_ITEM_TRANS
+@relation TEST_APRIORI
 @attribute A {TRUE, FALSE}
 @attribute B {TRUE, FALSE}
 @attribute C {TRUE, FALSE}
